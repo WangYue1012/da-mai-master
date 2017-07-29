@@ -52,19 +52,19 @@ export class ConcertListComponent implements OnInit {
     this.concert = this.concertServ.getConcerts()
  
     // Set SEO
-    title.setTitle('App Store');
+    title.setTitle('Da Mai');
 
     meta.addTags([{
         name: 'author',
-        content: 'Gary'
+        content: 'Wendy'
       },
       {
         name: 'keywords',
-        content: 'angular 4 tutorial, App store'
+        content: 'angular 4 tutorial, Da Mai'
       },
       {
         name: 'description',
-        content: 'Welcome to App store.'
+        content: 'Welcome to Da Mai.'
       },
     ]);
     // end of SEO
