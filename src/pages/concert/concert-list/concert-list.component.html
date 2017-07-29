@@ -1,0 +1,33 @@
+<p>Your Selected Concert Is : {{selectConcert.name}}</p>
+<div class="table-controls">
+    <div class="search-area" style="height:60px;">
+      <select [(ngModel)]="searchType" style="float:left;">
+        <option value="name">Concert Name</option>
+        <option value="sale_sta">Sale Sta</option>
+      </select>
+<input style="float:left;" 
+  [(ngModel)]="searchText"/>
+<button style="float:left;" (click)="concertServ.search(searchType,searchText)">Search</button>
+
+</div>
+<button routerLink="/concert/edit/new">演唱会添加</button>
+<button (click)="concertServ.deleteChecked()">批量删除</button>
+<button (click)="sortByAsccending()">降序排列</button>
+<button (click)="sortByDesccending()">升序排列</button>
+<button (click)="sortByRadom()">乱序排列</button>
+</div>
+<div class="row table-header">
+      <div class="col-1">selected </div>
+      <div class="col-1" (click)="sortByAsccending('id')">ID </div>
+      <div class="col-2" (click)="sortByAsccending('name')">艺人 </div>
+      <div class="col-1" (click)="sortByAsccending('sale_sta')">售票状态 </div>
+      <div class="col-2" (click)="sortByAsccending('price')">价格 </div>
+      <div class="col-1" (click)="sortByDesccending('location')">地点 </div>
+      <div class="col-2">Operate </div>
+</div>
+<div class="row table-row" *ngFor="let concert of searchResult">
+  <app-concert-item [concert]="concert" (concertClick)="selectConcert = $event"></app-concert-item>
+</div>
+<div class="row table-row" *ngFor="let concert of concerts">
+  <app-concert-item [concert]="concert" (concertClick)="selectConcert = $event"></app-concert-item>
+</div>
