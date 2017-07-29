@@ -20,7 +20,7 @@ export class ConcertListComponent implements OnInit {
     name:"No selected"
   };
   searchResult:Array<any>;
-  concert:Array<any>=[];
+  concerts:Array<any>=[];
 
   getUserClick(ev){
     this.selectConcert = ev
@@ -29,27 +29,27 @@ export class ConcertListComponent implements OnInit {
  
   sortByAsccending(type="id") {
     // 参考MDN Array操作的API文档 Array相关方法方法
-    this.concert.sort((a,b)=>{
+    this.concerts.sort((a,b)=>{
       return a[type] - b[type];
     });
   }
   sortByDesccending(type="id") {
     // 参考MDN Array操作的API文档 Array相关方法
     // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.concert.sort((a,b)=>{
+    this.concerts.sort((a,b)=>{
       return b[type] - a[type];
     });
   }
   sortByRadom() {
     // 参考MDN Array操作的API文档 Math相关方法
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-  this.concert.forEach((concert,index)=>{
+  this.concerts.forEach((concert,index)=>{
     concert.tempIndex = Math.random();
   })
     this.sortByAsccending("tempIndex");
   }
   constructor(meta: Meta, title: Title, private concertServ:ConcertService) {
-    this.concert = this.concertServ.getConcerts()
+    this.concerts = this.concertServ.getConcerts()
  
     // Set SEO
     title.setTitle('Da Mai');

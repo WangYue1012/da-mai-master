@@ -3,7 +3,7 @@
     <div class="search-area" style="height:60px;">
       <select [(ngModel)]="searchType" style="float:left;">
         <option value="name">Concert Name</option>
-        <option value="sale_sta">Sale Sta</option>
+        <option value="sale">Sale Sta</option>
       </select>
 <input style="float:left;" 
   [(ngModel)]="searchText"/>
@@ -20,7 +20,7 @@
       <div class="col-1">selected </div>
       <div class="col-1" (click)="sortByAsccending('id')">ID </div>
       <div class="col-2" (click)="sortByAsccending('name')">艺人 </div>
-      <div class="col-1" (click)="sortByAsccending('sale_sta')">售票状态 </div>
+      <div class="col-1" (click)="sortByAsccending('sale')">售票状态 </div>
       <div class="col-2" (click)="sortByAsccending('price')">价格 </div>
       <div class="col-1" (click)="sortByDesccending('location')">地点 </div>
       <div class="col-2">Operate </div>
